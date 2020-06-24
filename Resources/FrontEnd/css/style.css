@@ -1,0 +1,622 @@
+/* ------------------------------ */
+/* Common Steps */
+/* ------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: whitesmoke;
+    color: rgb(46, 45, 45);
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+/* ------------- changing default ------------- */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fc716a;
+    height: 10px;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ff3d35;
+}
+
+/* ------------------------------ */
+/* Reusable Components */
+/* ------------------------------ */
+.row {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* .col {
+    width: 23.8%;
+} */
+
+h1,
+h2,
+h3 {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+h1 {
+    color: white;
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+    font-size: 240%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h2::after {
+    display: block;
+    height: 2px;
+    background-color: #ff5e57;
+    width: 100px;
+    content: "";
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+h3 {
+    font-size: 106.7%;
+    margin-bottom: 15%;
+    letter-spacing: 0px;
+}
+
+.long-copy {
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.box {
+    padding: 2%;
+}
+
+.box p {
+    font-size: 90%;
+    line-height: 145%;
+}
+
+/* ----------Icons------------- */
+.icon-big {
+    font-size: 250% !important;
+    display: block;
+    color: #ff5e57;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/*------------ Buttons -------*/
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    color: white;
+    transition: background-color 0.3s, border 0.2s, color 0.2s;
+}
+
+.btn-primary:link,
+.btn-primary:visited {
+    background-color: #ff5e57;
+    border: 1.4px solid #ff5e57;
+    margin-right: 15px;
+
+}
+
+.btn-secondary:link,
+.btn-secondary:visited {
+    border: 1.4px solid #fc716a;
+    color: #f5827c;
+}
+
+.btn:hover,
+.btn:active {
+    background-color: #ff3d35;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+    border: 1.4px solid #ff3d35;
+}
+
+.btn-secondary:hover,
+.btn-secondary:active {
+    border: 1.4px solid #ff3d35;
+    color: #fff;
+}
+
+/* ------------------------------ */
+/* Header Components */
+/* ------------------------------ */
+#videoBG {
+    margin: -8em 0 0 0;
+    position: absolute;
+    z-index: -1;
+    /* background-position: center; */
+}
+
+header {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0.87)), url(img/);
+    /*#c44569ea, #3dc1d37a*/
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    width: auto;
+    overflow: hidden;
+    height: 110vh;
+    user-select: none;
+}
+
+.hero-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ------------------------- logo --------------------*/
+.logo {
+    color: white;
+    float: left;
+    width: auto;
+    /* margin: 10px !important; */
+    margin-top: 40px;
+    margin-left: 55px;
+    display: block;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    /* margin-left: -50px; */
+    transform: translateX(0px);
+    opacity: 1;
+    transition: transform 1s, opacity .2s;
+
+}
+
+.logo-text {
+    font-weight: 400;
+    font-size: 30px;
+    text-decoration: underline;
+    margin-top: -10px;
+    /* top: 100%;
+    left: 4%; */
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: margin-left 1s, opacity .2s;
+
+}
+
+.logo:hover .logo-img {
+    transform: translateY(-180px);
+    opacity: 0;
+    transition: transform 1.5s, opacity .8s;
+}
+
+.logo:hover .logo-text {
+    cursor: pointer;
+    position: relative;
+    opacity: 1;
+    /* transform: translateX(-11px); */
+    margin-left: -54px;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+/*----------------- Navbar ----------------*/
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    color: unset;
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.main-nav {
+    margin-top: 50px;
+    float: right;
+    list-style: none;
+}
+
+.main-nav li {
+    display: inline;
+    margin-left: 10px;
+}
+
+.main-nav li a {
+    padding: 8px 0;
+    margin-right: 30px;
+    display: inline-block !important;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 70%;
+    font-weight: 300;
+}
+
+.main-nav li a::after {
+    content: '';
+    position: relative;
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff5e57;
+    transition: width .3s;
+}
+
+.main-nav li a:hover::after {
+    width: 100%;
+    margin: 0px;
+}
+
+/* ------------------------------ */
+/* Features */
+/* ------------------------------ */
+
+.section-features {
+    background-color: whitesmoke;
+    display: grid;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* ------------------------------ */
+/* Places */
+/* ------------------------------ */
+.section-places {
+    padding: 0;
+}
+
+.places-showcase {
+    list-style: none;
+    visibility: visible;
+    width: 100%;
+}
+
+.places-showcase li {
+    display: block;
+    float: left;
+    width: 25%;
+    object-fit: contain;
+
+}
+
+.place-photo {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow: hidden;
+}
+
+.place-photo img {
+    opacity: 0.7;
+    display: block;
+    width: 100%;
+    /* height: auto; */
+    height: 230px;
+    transform: scale(1.15);
+    transition: transform .7s, opacity 0.5s;
+
+
+}
+
+.place-photo img:hover {
+    transform: scale(1.03);
+    transition: transform .7s, opacity 0.5s;
+    opacity: 1;
+}
+
+/* ------------------------------ */
+/* How it works*/
+/* ------------------------------ */
+.section-steps {
+    background-color: rgb(236, 236, 236);
+}
+
+.steps-box:first-child {
+    text-align: right;
+    padding-right: 3%;
+}
+
+.steps-box:last-child {
+    padding-left: 3%;
+    display: block;
+    padding-top: 8%;
+}
+
+.app-screen {
+    width: 40%;
+}
+
+.works-step {
+    margin-bottom: 30px;
+}
+
+.works-step:last-of-type {
+    margin-bottom: 80px;
+}
+
+.works-step div {
+    color: tomato;
+    border: 2px solid tomato;
+    display: inline-block;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    font-size: 150%;
+    margin-right: 25px;
+}
+
+.btn-app img {
+    height: 50px;
+    margin-right: 10px;
+    width: auto;
+}
+
+/*///////////////////////////////////////////////////// Media Queries ///////////////////////////////////*/
+/*for Pc */
+@media only screen and (max-width:1200px) {
+    .hero-text-box {
+        width: 100%;
+        padding: 0 2%;
+    }
+
+    .row {
+        padding: 0 2%;
+    }
+}
+
+/*For Big Tablets*/
+@media only screen and (max-width:1024px) {
+    body {
+        font-size: 18px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .long-copy {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .steps-box {
+        margin-top: 10px;
+
+    }
+
+    .steps-box:last-child {
+        margin-top: 10px;
+    }
+
+    .works-steps {
+        margin-top: 40px;
+    }
+
+    .works-step:last-of-type {
+        margin-bottom: 60px;
+    }
+
+    .app-screen {
+        width: 50%;
+    }
+}
+
+/*For Small Tablets*/
+@media only screen and (max-width:768px) {
+    body {
+        font-size: 16px;
+
+    }
+
+    section {
+        padding: 30px 0;
+
+    }
+
+    .hero-text-box {
+        text-align: center;
+    }
+
+    .row,
+    .hero-text-box {
+        padding: 0 4%;
+    }
+
+    .col {
+        width: 100%;
+        margin: 0 0 4% 0;
+    }
+
+    .logo {
+        margin-top: 40px;
+        margin-left: 55px;
+    }
+
+    .logo-img {
+        height: 20px;
+    }
+
+    .logo-text {
+        font-size: 20px;
+    }
+
+    .main-nav li a {
+        padding: 0;
+        margin-right: 30px;
+        font-size: 60%;
+        font-weight: 300;
+    }
+
+    .navbar {
+        padding: 5px !important;
+    }
+
+    h1 {
+        font-size: 100%;
+    }
+
+    h2 {
+        font-size: 150%;
+    }
+
+    .long-copy {
+        width: 80%;
+        margin-left: 0%;
+    }
+
+    .app-screen {
+        width: 40%;
+    }
+
+    .steps-box:first-child {
+        text-align: center;
+    }
+
+    .works-step div {
+        height: 40px;
+        width: 40px;
+        margin-right: 15px;
+        padding: 4px;
+    }
+
+    .works-steps {
+        margin-bottom: 20px;
+    }
+
+    .works-step:last-of-type {
+        margin-bottom: 20px;
+    }
+
+}
+
+/*For Small Phones */
+@media only screen and (max-width:480px) {
+
+
+    section {
+        padding: 25px 0;
+    }
+
+    .logo {
+        margin-top: 32px;
+        margin-left: 24px;
+    }
+
+
+    .logo-text {
+
+        font-size: 8px;
+        margin-left: -19px;
+    }
+
+    .logo-img {
+        height: 10px;
+    }
+
+    .main-nav {
+        margin-top: 5px;
+        margin-left: none !important;
+    }
+
+    .main-nav li a {
+        padding: 0;
+        /* margin-right: 5px; */
+        margin-top: 32px;
+        font-size: 40%;
+        font-weight: 300;
+    }
+
+    .section-places {
+        height: 30px;
+    }
+
+    .navbar {
+        padding: 5px !important;
+    }
+}
+
+@media only screen and (max-width:492px) {
+    .main-nav {
+        margin-top: -25px;
+        margin-left: none;
+        margin-left: none !important;
+    }
+
+    .main-nav li a {
+        padding: 0;
+        font-size: 30%;
+        /* margin-top: -70px; */
+    }
+
+    /* .logo-text {
+
+        font-size: 8px;
+    } */
+}
